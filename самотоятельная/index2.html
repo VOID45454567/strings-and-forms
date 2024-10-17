@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      color: white;
+      font-family: "Kanit", sans-serif;
+      background-color: rgb(52, 52, 52);
+    }
+    .content {
+      width: 50%;
+      margin: 0 auto;
+      background-color: gray;
+      display: flex;
+      flex-direction: column;
+      h1 {
+        text-align: center;
+      }
+      input,
+      button {
+        height: 40px;
+        width: 50%;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 10px;
+        border: none;
+      }
+    }
+  </style>
+  <body>
+    <div class="content" id="block">
+      <h1>Введите число x</h1>
+      <input type="text" id="input" />
+      <button type="button" id="button">Рассичтать</button>
+    </div>
+  </body>
+  <script>
+    input = document.getElementById("input");
+    btn = document.getElementById("button");
+    block = document.getElementById("block");
+    btn.onclick = function () {
+      block.insertAdjacentHTML(
+        "beforeend",
+        `<p> синус: ${Math.sin(Number(input.value))} косинус: ${Math.cos(
+          Number(input.value)
+        )}логорифм: ${Math.log(Number(input.value))}`
+      );
+    };
+  </script>
+</html>

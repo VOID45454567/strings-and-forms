@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      color: white;
+      font-family: "Kanit", sans-serif;
+      background-color: rgb(52, 52, 52);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      margin: 0 auto;
+      background-color: rgb(83, 83, 83);
+      padding: 10px;
+      border-radius: 10px;
+      input {
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 10px;
+      }
+      button {
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        transition: 0.12s;
+      }
+      button:hover {
+        background-color: rgb(47, 47, 47);
+        color: white;
+        cursor: pointer;
+      }
+    }
+  </style>
+  <body>
+    <section class="content">
+      <form name="myForm" id="form">
+        <label for="">Сторона</label>
+        <input type="text" id="side" />
+        <label for="">Высота</label>
+        <input type="text" id="height" />
+        <label for="">Площадь</label>
+        <input type="text" id="area" />
+        <label for="">Вписананя окружность</label>
+        <input type="text" id="inradius" />
+        <label for="">Описанная окружность</label>
+        <input type="text" id="circumradius" />
+        <button type="button" id="input">Расчитать</button>
+      </form>
+    </section>
+  </body>
+  <script>
+    formHTML = document.getElementById("form");
+    inputHTML = document.getElementById("input");
+    form.onclick = function (event) {
+      switch (event.target.id) {
+        case "side":
+          input.onclick = function () {
+            side = event.target.value;
+            //console.log(side);
+
+            height = (side * Math.sqrt(0.866)) / 2;
+            area = (side ** 2 * Math.sqrt(0.75)) / 4;
+            inradius = area / side;
+            circumradius = side / (2 * Math.sin(Math.PI / 3));
+            formHTML.insertAdjacentHTML(
+              "beforeend",
+              `<p>Сторона: ${Math.floor(side)} </p>
+                <p>Полощадь: ${Math.floor(area)}</p>
+                <p>Высота: ${Math.floor(height)}</p>
+                <p>Вписаанная: ${Math.floor(inradius)}</p>
+                <p>Описананя: ${Math.floor(circumradius)}</p>`
+            );
+          };
+          break;
+
+        case "area":
+          input.onclick = function () {
+            sqare = event.target.value;
+            side = (2 * area) / Math.sqrt(0.75);
+            height = (side * Math.sqrt(0.866)) / 2;
+            inradius = area / side;
+            circumradius = side / (2 * Math.sin(Math.PI / 3));
+            formHTML.insertAdjacentHTML(
+              "beforeend",
+              `<p>Сторона: ${Math.floor(side)} </p>
+                <p>Полощадь: ${Math.floor(area)}</p>
+                <p>Высота: ${Math.floor(height)}</p>
+                <p>Вписаанная: ${Math.floor(inradius)}</p>
+                <p>Описананя: ${Math.floor(circumradius)}</p>`
+            );
+          };
+          break;
+        case "height":
+          input.onclick = function () {
+            height = event.target.value;
+            console.log(height);
+            side = (2 * height) / Math.sqrt(0.866);
+            area = (side ** 2 * Math.sqrt(0.75)) / 4;
+            inradius = area / side;
+            circumradius = side / (2 * Math.sin(Math.PI / 3));
+
+            formHTML.insertAdjacentHTML(
+              "beforeend",
+              `<p>Сторона: ${Math.floor(side)} </p>
+                <p>Полощадь: ${Math.floor(area)}</p>
+                <p>Высота: ${Math.floor(height)}</p>
+                <p>Вписаанная: ${Math.floor(inradius)}</p>
+                <p>Описананя: ${Math.floor(circumradius)}</p>`
+            );
+          };
+
+          break;
+
+        case "inradius":
+          input.onclick = function () {
+            inradius = event.target.value;
+            side = 2 * inradius * Math.sqrt(0.75);
+            area = side * inradius;
+            height = (side * Math.sqrt(0.866)) / 2;
+            circumradius = side / (2 * Math.sin(Math.PI / 3));
+
+            formHTML.insertAdjacentHTML(
+              "beforeend",
+              `<p>Сторона: ${Math.floor(side)} </p>
+                <p>Полощадь: ${Math.floor(area)}</p>
+                <p>Высота: ${Math.floor(height)}</p>
+                <p>Вписаанная: ${Math.floor(inradius)}</p>
+                <p>Описананя: ${Math.floor(circumradius)}</p>`
+            );
+          };
+
+          break;
+
+        case "circumradius":
+          input.onclick = function () {
+            circumradius = event.target.value;
+            side = 2 * circumradius * Math.sin(Math.PI / 3);
+            area = (side ** 2 * Math.sqrt(0.75)) / 4;
+            height = (side * Math.sqrt(0.866)) / 2;
+            inradius = area / side;
+
+            formHTML.insertAdjacentHTML(
+              "beforeend",
+              `<p>Сторона: ${Math.floor(side)} </p>
+                <p>Полощадь: ${Math.floor(area)}</p>
+                <p>Высота: ${Math.floor(height)}</p>
+                <p>Вписаанная: ${Math.floor(inradius)}</p>
+                <p>Описананя: ${Math.floor(circumradius)}</p>`
+            );
+          };
+          break;
+      }
+      console.log(result);
+    };
+  </script>
+</html>

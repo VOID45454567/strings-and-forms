@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      color: white;
+      font-family: "Kanit", sans-serif;
+      background-color: rgb(52, 52, 52);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      margin: 0 auto;
+      background-color: rgb(83, 83, 83);
+      padding: 10px;
+      border-radius: 10px;
+      input {
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        margin-bottom: 10px;
+      }
+      button {
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        transition: 0.12s;
+      }
+      button:hover {
+        background-color: rgb(47, 47, 47);
+        color: white;
+        cursor: pointer;
+      }
+    }
+  </style>
+  <body>
+    <div class="content">
+      <form id="form">
+        <label>Сколько вложил?</label>
+        <input type="text" id="start" />
+        <label>Процент?</label>
+        <input type="text" id="percent" />
+        <label>Через сколько времени? (месяцы)</label>
+        <input type="text" id="time" />
+        <button type="button" id="button">Расчитать</button>
+      </form>
+    </div>
+    <script>
+      let btn = document.querySelector("#button");
+      const form = document.querySelector("#form");
+      btn.onclick = () => {
+        const startCapital = Number(document.querySelector("#start").value);
+        const percent = Number(document.querySelector("#percent").value);
+        const time = Number(document.querySelector("#time").value);
+        console.log(startCapital, percent, time);
+        let currentCapital = startCapital;
+        for (let i = 0; i < time; i++) {
+          currentCapital += (currentCapital * percent) / 100;
+        }
+        const output = document.createElement("p");
+        output.textContent = `Доход: ${Math.floor(
+          currentCapital - startCapital
+        )}`;
+        form.appendChild(output);
+      };
+    </script>
+  </body>
+</html>
