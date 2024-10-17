@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        str = '<table><tr><td>0</td><td>1</td><td>2</td></tr>'+
+                '<tr><td>3</td><td>4</td><td>5</td></tr>'+
+                    '<tr><td>6</td><td>7</td><td>8</td></tr></table>'
+                    splitedOne = str.split('<')
+                    srtSplitedOne = splitedOne.join('')
+                    splitedTwo = srtSplitedOne.split('>')
+                    for (let i = 0; i < splitedTwo.length; i++) {
+                        if (splitedTwo[i] === 'td') {
+                            splitedTwo[i] = 'td style="text-align:right;'
+                        }
+                    }
+            console.log(splitedTwo);
+            
+    </script>
+</body>
+</html>
