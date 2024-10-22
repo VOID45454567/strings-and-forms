@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="content">
+      <label>Номер</label>
+      <input type="text" class="input" />
+      <input type="text" class="output" />
+      <button type="button" class="btn">проверит</button>
+    </div>
+  </body>
+  <script>
+    const input = document.querySelector(".input");
+    const output = document.querySelector(".output");
+    const btn = document.querySelector(".btn");
+    const regex = /^[a-z](\d{3})[a-z]$/i;
+    btn.onclick = () => {
+      if (input.value === regex) {
+        output.textContent = "Строка соответствует шаблону";
+      } else {
+        output.textContent = "Строка не соответствует шаблону";
+      }
+    };
+  </script>
+</html>
