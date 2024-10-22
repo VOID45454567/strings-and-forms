@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const map1 = new Map();
+      map1.set("a", 1);
+      map1.set("b", 2);
+      map1.set("c", 3);
+
+      const map2 = new Map();
+      map2.set("a", 4);
+      map2.set("b", 5);
+      map2.set("c", 6);
+
+      const summedMap = new Map();
+
+      for (const [key, value1] of map1) {
+        const value2 = map2.get(key);
+        if (value2 !== undefined) {
+          summedMap.set(key, value1 + value2);
+        }
+      }
+
+      console.log(summedMap);
+    </script>
+  </body>
+</html>

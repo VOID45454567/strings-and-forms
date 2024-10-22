@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const names = new Map();
+      names.set("John", "123 Main Street");
+      names.set("Alice", "456 Second Avenue");
+
+      const phones = new Map();
+      phones.set("John", "555-1234");
+      phones.set("Alice", "555-5678");
+
+      // Объединяем Map'ы в один Map
+      const combinedMap = new Map(
+        [...names].map(([name, address], index) => {
+          const phone = phones.get(name);
+          return [name, [address, phone]];
+        })
+      );
+
+      console.log(combinedMap);
+    </script>
+  </body>
+</html>
