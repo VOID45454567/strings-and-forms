@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .content {
+      width: 50%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .block {
+        width: 20%;
+        height: 30px;
+        border: 1px solid black;
+        text-align: center;
+        padding-top: 5px;
+      }
+    }
+  </style>
+  <body class="body">
+    <div class="content">
+      <div class="block">block 1</div>
+      <div class="block">block 2</div>
+      <div class="block">block 4</div>
+      <div class="block">block 5</div>
+    </div>
+  </body>
+  <script>
+    const body = document.querySelector(".body");
+    const container = document.querySelector(".content");
+    const elements = container.children;
+    body.addEventListener("keydown", (e) => {
+      console.log(e.key);
+      //   e.preventDefault();
+      for (let i = 0; i < elements.length; i++) {}
+      let activeElIndex = 0;
+      let activeEl = elements[activeElIndex];
+      activeEl.style.backgroundColor = "black";
+      activeEl.style.color = "white";
+      if (e.key === "ArrowRight") {
+        activeEl = elements[activeElIndex++];
+        console.log(activeEl);
+      }
+    });
+  </script>
+</html>
